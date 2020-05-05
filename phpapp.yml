@@ -1,0 +1,25 @@
+Ansible-Docker Automation 
+
+---
+- name: Deploying php application 
+  hosts: all/ip-address/group-name
+  tasks:
+    - name: updating the apt library Deploying the php & apache
+      apt:
+       name: "{{item}}"
+       state: present
+       update-cache: yes
+      with-items:
+       - php7.2-apche
+       - apache2        
+...
+
+
+By using the Service module, we can start, stop & restart the service or application by using the below command:
+
+ansible all/ip-address/group-name -m service -a ' name=php7/apache2(servicename) status= started'
+
+                        status = started ---> for starting the services
+                               = stopped ---> for stopping the services 
+                               = restarted -> for restarting the services
+                               
