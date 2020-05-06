@@ -1,4 +1,5 @@
 /* Terraform code for Creating teh Docker Swarm Cluster */
+/* Im not able to share the terraform state file due to issue of the client lap from my previous organization */
 
 provider "aws" {
   access_key  = "${var.access_key}"
