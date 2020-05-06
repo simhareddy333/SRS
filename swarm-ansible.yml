@@ -11,10 +11,10 @@ Ansible playbook for for setting up the Docker swarm:
    - name: Install Docker-py, download docker & install it
      shell: "{{item}}"
       with-items:
-	- pip install docker-py
-	- curl -fsSL https://get.docker.com -o get-docker.sh
-	- sh get-docker.sh
-	- docker swarm init --advertise-addr (private-ip-of-manager)
+       - pip install docker-py
+       - curl -fsSL https://get.docker.com -o get-docker.sh
+       - sh get-docker.sh
+       - docker swarm init --advertise-addr (private-ip-of-manager)
    - name: Error handling
      - block: 
        - name: check docker is installed or not??
