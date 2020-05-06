@@ -1,3 +1,5 @@
+/* Docker Compose file for nginx installation */
+
 ---
 version: "3"
 services:
