@@ -6,22 +6,22 @@ Ansible playbook for for setting up the Docker swarm:
   tasks:
    - name: Install python-pip
      apt:
-	  name: python-pip
-	  state: present
+      name: python-pip
+      state: present
    - name: Install Docker-py, download docker & install it
      shell: "{{item}}"
-	 with-items:
-	  - pip install docker-py
-	  - curl -fsSL https://get.docker.com -o get-docker.sh
-	  - sh get-docker.sh
-	  - docker swarm init --advertise-addr (private-ip-of-manager)
+      with-items:
+	- pip install docker-py
+	- curl -fsSL https://get.docker.com -o get-docker.sh
+	- sh get-docker.sh
+	- docker swarm init --advertise-addr (private-ip-of-manager)
    - name: Error handling
      - block: 
        - name: check docker is installed or not??
          shell: docker --version
        rescue:
         - name: Install docker
-         shell: "{{item}}"
+          shell: "{{item}}"
             with-items:
                 - pip install docker-py
                 - curl -fsSL https://get.docker.com -o get-docker.sh
